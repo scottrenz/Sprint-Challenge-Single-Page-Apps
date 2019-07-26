@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components'
 import CharacterCard from './CharacterCard'
+import LocationsList from './LocationsList';
 
 export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
@@ -46,7 +47,7 @@ const [times, setTimes] = React.useState(0);
     axios
        .get(`https://rickandmortyapi.com/api/character/`)
        .then(response => {
-console.log('response.data',response.data)
+// console.log('response.data',response.data)
 // results = response.data['results']
 setChar({results: response.data.results}) ;
 // console.log('charList',charList)
@@ -73,6 +74,7 @@ if (times % 3 === 0) {
             name={arr[ix].name}
             gender={arr[ix].gender}
             location={arr[ix].location.name}
+            url={arr[ix].location.url}
             origin={arr[ix].origin.name}
              species={arr[ix].species}
              status={arr[ix].status}
@@ -84,5 +86,4 @@ if (times % 3 === 0) {
       </div>
         </h3>
     </section>
-
 }
