@@ -65,25 +65,24 @@ if (times % 3 === 0) {
       },[times,counter]);
       return <section className='character-list grid-view'>
 
-      <h2>Cast:
+      <h3><h2>Characters:</h2>
 
       <div className={gridView}>
       {charList.results.map((star,ix,arr) => (
-            <CharacterCard name={arr[ix].name} location={arr[ix].location.name} key={arr[ix].name} className={divView}>
+            <CharacterCard
+            name={arr[ix].name}
+            gender={arr[ix].gender}
+            location={arr[ix].location.name}
+            origin={arr[ix].origin.name}
+             species={arr[ix].species}
+             status={arr[ix].status}
+             key={arr[ix].name} className={divView}>
 
 
             </CharacterCard>
       ))}
       </div>
-      
-      <div className={gridView}>
-{charList.results.map((star,ix,arr) => (
-            <div>
-              {arr[ix].location.name}
-            </div>
-      ))}
-      </div>
-      </h2>
+        </h3>
     </section>
 
 }
