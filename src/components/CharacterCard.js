@@ -18,7 +18,11 @@ return (<span>
     <li  style={liView} >Gender: {props.gender}</li>
     <li  style={liView} >Status: {props.status}</li>
     <li  style={liView} >Episodes: {props.episodes}</li>
-    <LocationsList locaUrl={props.url} />
+{ (props.url === '') &&  <div>
+ <h3 style={{marginLeft: '40px'}}>Location:</h3>
+<div style={{marginLeft: '60px'}}>{props.location}</div></div>}
+{ (props.url !== '') &&
+<LocationsList locaUrl={props.url} />}
 </div>
     </div>
     </span>

@@ -23,7 +23,7 @@ const [times, setTimes] = React.useState(0);
     axios
        .get(`https://rickandmortyapi.com/api/character/`)
        .then(response => {
-setChar({results: response.data.results}) ;
+setChar({results: response.data.results});
 if (times % 3 === 0) {
   setTimes(counter + 1);
 }

@@ -42,7 +42,7 @@ if (times % 3 === 0) {
       <h3 style={{marginLeft: '10px'}}>Location:
 
       <div className={gridView}>
-      { (locaList == undefined) &&  <div>unknown</div>}
+      { (locaList === undefined) &&  <div>unknown</div>}
 
    { (locaList !== undefined) &&       <LocationsCard
             name={(locaList.name !== undefined) ? locaList.name : ''}
