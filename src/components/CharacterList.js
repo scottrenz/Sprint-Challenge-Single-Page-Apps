@@ -6,12 +6,6 @@ import CharacterCard from './CharacterCard'
 export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
 
-let gridView = {
-  display: 'flex',
-  flexWrap: 'wrap',
-  justifyContent: 'space-evenly'
-}
-
 let divView = styled.div `
   margin: 1.25rem;
 `;
@@ -29,7 +23,6 @@ setChar({results: response.data.results}) ;
 if (times % 3 === 0) {
   setTimes(counter + 1);
 }
-
       })
         .catch(error => {
           console.error(error);
@@ -38,7 +31,7 @@ if (times % 3 === 0) {
       },[times,counter]);
       return <section className='character-list grid-view'>
 
-      <h3><h2>Characters:</h2>
+      <h3>Characters:
 
       <div style={{  display: 'flex',
   flexWrap: 'wrap',

@@ -5,18 +5,12 @@ import EpisodeCard from './EpisodeCard'
 
 export default function EpisodesList(props) {
   // TODO: Add useState to track data from useEffect
-let gridView = styled.div `
-  display: flex;
-  flexWrap: wrap;
-  justifyContent: space-evenly;
-`;
 
 let divView = styled.div `
   margin: 1.25rem;
 `;
 
 let counter = 0
-let url = props.episUrl
 const [episList,setepis] = useState({results: []})
 const [times, setTimes] = React.useState(0);
   useEffect(() => {

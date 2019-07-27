@@ -1,12 +1,8 @@
 import React from 'react'
-import styled from 'styled-components'
 
 import LocationsList from './LocationsList'
 
 export default function CharacterCard (props /* add props */ ) {
-  let divView = styled.div `
-  border: thin solid black; 
-`;
 let liView = {
   marginLeft: '10px' 
 };
@@ -14,7 +10,7 @@ let liView = {
 return (<span>
        
     <div>
-    <img style={{width: '400px',marginLeft: '20px',marginBottom: '0',borderRadius: '10px 10px 0 0'}} src={props.image} />
+    <img alt='' style={{width: '400px',marginLeft: '20px',marginBottom: '0',borderRadius: '10px 10px 0 0'}} src={props.image} />
     <div style={{width: '400px',marginLeft: '20px',marginTop: '0',border: 'thin solid grey',borderRadius: '0 0 10px 10px',borderTop: '0'}}>
     <h2 style={{marginLeft: '20px'}}> {props.name}</h2>
     <li  style={liView} >Origin: {props.origin}</li>

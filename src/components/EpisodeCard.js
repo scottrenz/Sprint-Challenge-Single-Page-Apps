@@ -1,5 +1,4 @@
 import React from 'react'
-let count = 0;
 export default function EpisodeCard (props) {
   // image={image}
   let liView = {

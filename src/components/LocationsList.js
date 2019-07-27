@@ -5,14 +5,15 @@ import LocationsCard from './LocationsCard'
 
 export default function LocationsList(props) {
   // TODO: Add useState to track data from useEffect
-let gridView = styled.div `
+
+  const myFunction = function (element,ix,arr) {
+    return arr.length;
+  }
+  
+  let gridView = styled.div `
   display: flex;
   flexWrap: wrap;
   justifyContent: space-evenly;
-`;
-
-let divView = styled.div `
-  margin: 1.25rem;
 `;
 
 let counter = 0
@@ -35,7 +36,7 @@ if (times % 3 === 0) {
           console.error(error);
 
         });
-      },[times,counter]);
+      },[times,counter,url]);
       return <section className='character-list grid-view'>
 
       <h3 style={{marginLeft: '10px'}}>Location:
@@ -46,7 +47,9 @@ if (times % 3 === 0) {
             created={locaList.created}
             dimension={locaList.dimension}
             type={locaList.type}
-            residents={locaList.residents}
+            residents={locaList.residents.map(myFunction)[0]}
+
+            // residents={locaList.residents}
              >
             </LocationsCard>}
       </div>

@@ -1,15 +1,16 @@
 import React from 'react'
-let count = 0;
+
 export default function LocationsCard (props) {
   // image={image}
 
   return (<span>
        
-    <div style={{display:'flex;'}}>
+    <div>
       <h3 style={{marginLeft: '20px'}}> {props.name}</h3>
     <li>Created: {props.created}</li>
     <li>Dimension: {props.dimension}</li>
     <li>Type: {props.type}</li>
+    <li>Residents: {props.residents}</li>
     </div>
     </span>
     )
