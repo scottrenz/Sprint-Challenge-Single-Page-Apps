@@ -90,6 +90,7 @@ if (times % 3 === 0) {
             created={arr[ix].created}
             dimension={arr[ix].dimension}
             location={arr[ix].name}
+            type={arr[ix].type}
 
             residents={arr[ix].residents[0]}
              key={arr[ix].name} className={divView}>
