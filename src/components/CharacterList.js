@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+// import useIsMounted from 'ismounted';
 import axios from 'axios';
 import styled from 'styled-components'
 import CharacterCard from './CharacterCard'
@@ -17,13 +18,17 @@ let divView = styled.div `
 let counter = 0
 const [charList,setChar] = useState({results: []})
 const [times, setTimes] = React.useState(0);
-  useEffect(() => {
+// const isMounted = useIsMounted();
+useEffect(() => {
     // TODO: Add AJAX/API Request here - must run in `useEffect`
     //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
     axios
        .get(`https://rickandmortyapi.com/api/character/`)
        .then(response => {
-setChar({results: response.data.results});
+        // if (isMounted.value) {
+          setChar({results: response.data.results});
+        // }
+  
 if (times % 3 === 0) {
   setTimes(counter + 1);
 }

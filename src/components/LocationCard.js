@@ -13,7 +13,7 @@ export default function LocationCard (props) {
     <li style={liView} >Created: {props.created}</li>
     <li style={liView}>Dimension: {props.dimension}</li>
     <li style={liView}>Type: {props.type}</li>
-    <li style={liView}>Residents: {props.residents}</li>
+    <li style={liView}>Residents: {(!props.residents) ? '0' : props.residents}</li>
     </div>
     </span>
     )

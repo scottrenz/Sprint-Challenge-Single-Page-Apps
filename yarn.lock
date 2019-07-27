@@ -5352,6 +5352,11 @@ isexe@^2.0.0:
   resolved "https://registry.yarnpkg.com/isexe/-/isexe-2.0.0.tgz#e8fbf374dc556ff8947a10dcb0572d633f2cfa10"
   integrity sha1-6PvzdNxVb/iUehDcsFctYz8s+hA=
 
+ismounted@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/ismounted/-/ismounted-0.1.0.tgz#a3c3c8453dc1d3ab3c7e3b6ec3143267c9d064c7"
+  integrity sha512-snG3MOjNGMWrU1wxQLylgihjaD6IrBX0hcNrKux2FUd4vbD1ll7tkG0fNYM9kc1fXIsB0axfmXsNbhNTfqsx4w==
+
 isobject@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-2.1.0.tgz#f065561096a3f1da2ef46272f815c840d87e0c89"
