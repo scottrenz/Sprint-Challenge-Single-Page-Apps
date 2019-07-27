@@ -1,14 +1,13 @@
 import React from 'react'
 let count = 0;
-export default function LocationCard (props) {
+export default function EpisodeCard (props) {
   // image={image}
 
   return (<span>
        
     <div style={{display:'flex;'}}><h2> {props.name}</h2>
-    <li>Created: {props.created}</li>
-    <li>Dimension: {props.dimension}</li>
-    <li>Type: {props.type}</li>
+    <li>Air Date: {props.air_date}</li>
+    <li>Episode: {props.episode}</li>
 
     <li></li>
     </div>

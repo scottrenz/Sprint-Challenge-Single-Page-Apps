@@ -5,6 +5,7 @@ export default function CharacterCard (props /* add props */ ) {
   return (<span>
        
     <div style={{display:'flex;'}}><h2> {props.name}</h2>
+    <img src={props.image} />
     {/* <li>Location: {props.location}</li> */}
     <li>Origin: {props.origin}</li>
     <li>Species: {props.species}</li>

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components'
 import CharacterCard from './CharacterCard'
-import LocationsList from './LocationsList';
 
 export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
@@ -50,7 +49,7 @@ const [times, setTimes] = React.useState(0);
 // console.log('response.data',response.data)
 // results = response.data['results']
 setChar({results: response.data.results}) ;
-// console.log('charList',charList)
+console.log('charList',charList)
 // console.log('results in char list',charList['results'])
 // console.log('results name in char list',charList['results'][0])
 // console.log('star',star)
@@ -73,6 +72,7 @@ if (times % 3 === 0) {
             <CharacterCard
             name={arr[ix].name}
             gender={arr[ix].gender}
+            image={arr[ix].image}
             location={arr[ix].location.name}
             url={arr[ix].location.url}
             origin={arr[ix].origin.name}

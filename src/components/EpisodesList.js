@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components'
-import LocationCard from './LocationCard'
+import EpisodeCard from './EpisodeCard'
 
-export default function LocationsList(props) {
+export default function EpisodesList(props) {
   // TODO: Add useState to track data from useEffect
 // {id: 1, name: "Rick Sanchez", status: "Alive", species: "Human", type: "", url: "https://rickandmortyapi.com/api/character/1"}
 // 
@@ -39,18 +39,19 @@ let url = props.locaUrl
 // console.log('props locaUrl',url)
 // const [charList,setChar] = useState({response: []})
 const [charList,setChar] = useState({results: []})
-const [locaList,setLoca] = useState()
+const [locaList,setLoca] = useState({results: []})
 const [times, setTimes] = React.useState(0);
 // const [charList,setChar] = useState({results: []})
   useEffect(() => {
     // TODO: Add AJAX/API Request here - must run in `useEffect`
     //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
     axios
-       .get(`${url}`)
+       .get(`https://rickandmortyapi.com/api/episode/`)
        .then(response => {
-// console.log('location list response',response)
+// console.log('new location list response',response)
 // results = response.data['results']
-setLoca(response.data) ;
+setLoca({results: response.data.results}) ;
+console.log('new episodes list response',locaList)
 //  console.log('locaList',locaList)
 // console.log('results in char list',charList['results'])
 // console.log('results name in char list',charList['results'][0])
@@ -67,9 +68,9 @@ if (times % 3 === 0) {
       },[times,counter]);
       return <section className='character-list grid-view'>
 
-      <h3><h2>Location:</h2>
+      <h3><h2>Episode:</h2>
 
-      <div className={gridView}>
+      {/* <div className={gridView}>
    { (locaList !== undefined) &&       <LocationCard
             name={(locaList.name !== undefined) ? locaList.name : ''}
             created={locaList.created}
@@ -78,7 +79,24 @@ if (times % 3 === 0) {
             residents={locaList.residents}
              >
             </LocationCard>}
-      </div>
+      </div> */}
+
+
+
+       <div className={gridView}>
+       {locaList.results.map((star,ix,arr) => (
+            <EpisodeCard
+            name={arr[ix].name}
+            air_date={arr[ix].air_date}
+            episode={arr[ix].episode}
+             key={arr[ix].name} className={divView}>
+
+
+             </EpisodeCard>
+       ))}
+       </div>
+
+
         </h3>
     </section>
 
