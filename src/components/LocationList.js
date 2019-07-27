@@ -51,7 +51,7 @@ const [times, setTimes] = React.useState(0);
 // console.log('new location list response',response)
 // results = response.data['results']
 setLoca({results: response.data.results}) ;
-console.log('new location list response',locaList)
+// console.log('new location list response',locaList)
 //  console.log('locaList',locaList)
 // console.log('results in char list',charList['results'])
 // console.log('results name in char list',charList['results'][0])
@@ -68,7 +68,7 @@ if (times % 3 === 0) {
       },[times,counter]);
       return <section className='character-list grid-view'>
 
-      <h3><h2>Location:</h2>
+      <h3>Location:
 
       {/* <div className={gridView}>
    { (locaList !== undefined) &&       <LocationCard

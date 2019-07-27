@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components'
-import LocationCard from './LocationCard'
+import LocationsCard from './LocationsCard'
 
 export default function LocationsList(props) {
   // TODO: Add useState to track data from useEffect
@@ -67,17 +67,17 @@ if (times % 3 === 0) {
       },[times,counter]);
       return <section className='character-list grid-view'>
 
-      <h3><h2>Location:</h2>
+      <h3>Location:
 
       <div className={gridView}>
-   { (locaList !== undefined) &&       <LocationCard
+   { (locaList !== undefined) &&       <LocationsCard
             name={(locaList.name !== undefined) ? locaList.name : ''}
             created={locaList.created}
             dimension={locaList.dimension}
             type={locaList.type}
             residents={locaList.residents}
              >
-            </LocationCard>}
+            </LocationsCard>}
       </div>
         </h3>
     </section>

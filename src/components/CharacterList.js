@@ -49,7 +49,7 @@ const [times, setTimes] = React.useState(0);
 // console.log('response.data',response.data)
 // results = response.data['results']
 setChar({results: response.data.results}) ;
-console.log('charList',charList)
+// console.log('charList',charList)
 // console.log('results in char list',charList['results'])
 // console.log('results name in char list',charList['results'][0])
 // console.log('star',star)

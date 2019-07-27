@@ -15,7 +15,7 @@ export default function EpisodesList(props) {
 //   flexWrap: 'wrap',
 //   justifyContent: 'space-evenly',
 // }
-// console.log('location list props',props)
+// console.log('epistion list props',props)
 let gridView = styled.div `
   display: flex;
   flexWrap: wrap;
@@ -35,11 +35,11 @@ let divView = styled.div `
 // `;
 
 let counter = 0
-let url = props.locaUrl
-// console.log('props locaUrl',url)
+let url = props.episUrl
+// console.log('props episUrl',url)
 // const [charList,setChar] = useState({response: []})
 const [charList,setChar] = useState({results: []})
-const [locaList,setLoca] = useState({results: []})
+const [episList,setepis] = useState({results: []})
 const [times, setTimes] = React.useState(0);
 // const [charList,setChar] = useState({results: []})
   useEffect(() => {
@@ -48,11 +48,11 @@ const [times, setTimes] = React.useState(0);
     axios
        .get(`https://rickandmortyapi.com/api/episode/`)
        .then(response => {
-// console.log('new location list response',response)
+// console.log('new epistion list response',response)
 // results = response.data['results']
-setLoca({results: response.data.results}) ;
-console.log('new episodes list response',locaList)
-//  console.log('locaList',locaList)
+setepis({results: response.data.results}) ;
+// console.log('new episodes list response',episList)
+//  console.log('episList',episList)
 // console.log('results in char list',charList['results'])
 // console.log('results name in char list',charList['results'][0])
 // console.log('star',star)
@@ -68,23 +68,23 @@ if (times % 3 === 0) {
       },[times,counter]);
       return <section className='character-list grid-view'>
 
-      <h3><h2>Episode:</h2>
+      <h3>Episode:
 
       {/* <div className={gridView}>
-   { (locaList !== undefined) &&       <LocationCard
-            name={(locaList.name !== undefined) ? locaList.name : ''}
-            created={locaList.created}
-            dimension={locaList.dimension}
-            type={locaList.type}
-            residents={locaList.residents}
+   { (episList !== undefined) &&       <epistionCard
+            name={(episList.name !== undefined) ? episList.name : ''}
+            created={episList.created}
+            dimension={episList.dimension}
+            type={episList.type}
+            residents={episList.residents}
              >
-            </LocationCard>}
+            </epistionCard>}
       </div> */}
 
 
 
        <div className={gridView}>
-       {locaList.results.map((star,ix,arr) => (
+       {episList.results.map((star,ix,arr) => (
             <EpisodeCard
             name={arr[ix].name}
             air_date={arr[ix].air_date}
