@@ -17,6 +17,7 @@ return (<span>
     <li  style={liView} >Species: {props.species}</li>
     <li  style={liView} >Gender: {props.gender}</li>
     <li  style={liView} >Status: {props.status}</li>
+    <li  style={liView} >Episodes: {props.episodes}</li>
     <LocationsList locaUrl={props.url} />
 </div>
     </div>

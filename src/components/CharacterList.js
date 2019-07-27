@@ -6,6 +6,10 @@ import CharacterCard from './CharacterCard'
 export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
 
+  const myFunction = function (element,ix,arr) {
+    return arr.length;
+  }
+
 let divView = styled.div `
   margin: 1.25rem;
 `;
@@ -47,6 +51,7 @@ if (times % 3 === 0) {
             origin={arr[ix].origin.name}
              species={arr[ix].species}
              status={arr[ix].status}
+             episodes={arr[ix].episode.map(myFunction)[0]}
              key={arr[ix].name} className={divView}>
             </CharacterCard>
       ))}
