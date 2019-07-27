@@ -83,7 +83,10 @@ if (times % 3 === 0) {
 
 
 
-       <div className={gridView}>
+<div style={{  display: 'flex',
+  flexWrap: 'wrap',
+  justifyContent: 'space-evenly'
+}}>
        {locaList.results.map((star,ix,arr) => (
             <LocationCard
             name={arr[ix].name}
@@ -91,8 +94,7 @@ if (times % 3 === 0) {
             dimension={arr[ix].dimension}
             location={arr[ix].name}
             type={arr[ix].type}
-
-            residents={arr[ix].residents[0]}
+            residents={arr[ix].residents}
              key={arr[ix].name} className={divView}>
 
 

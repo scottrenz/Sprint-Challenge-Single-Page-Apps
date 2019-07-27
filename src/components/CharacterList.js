@@ -10,21 +10,23 @@ export default function CharacterList() {
 // const [movie, setMovie] = useState({});
 // const [star, setStar] = useState({stars: []});
 
-// let gridView = {
-//   display: 'flex',
-//   flexWrap: 'wrap',
-//   justifyContent: 'space-evenly',
-// }
+let gridView = {
+  display: 'flex',
+  flexWrap: 'wrap',
+  justifyContent: 'space-evenly'
+}
 
-let gridView = styled.div `
-  display: flex;
-  flexWrap: wrap;
-  justifyContent: space-evenly;
-`;
+// let gridView = styled.div `
+// display: none;
+// border medium solid black;
+// `;
 
 let divView = styled.div `
   margin: 1.25rem;
 `;
+// display: flex;
+// flexWrap: wrap;
+// justify-content: space-evenly;
 
 // const Div = styled.div`
 
@@ -67,7 +69,10 @@ if (times % 3 === 0) {
 
       <h3><h2>Characters:</h2>
 
-      <div className={gridView}>
+      <div style={{  display: 'flex',
+  flexWrap: 'wrap',
+  justifyContent: 'space-evenly'
+}}>
       {charList.results.map((star,ix,arr) => (
             <CharacterCard
             name={arr[ix].name}

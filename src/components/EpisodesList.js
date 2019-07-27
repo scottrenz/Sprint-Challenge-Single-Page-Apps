@@ -83,7 +83,10 @@ if (times % 3 === 0) {
 
 
 
-       <div className={gridView}>
+<div style={{  display: 'flex',
+  flexWrap: 'wrap',
+  justifyContent: 'space-evenly'
+}}>
        {episList.results.map((star,ix,arr) => (
             <EpisodeCard
             name={arr[ix].name}

@@ -67,7 +67,7 @@ if (times % 3 === 0) {
       },[times,counter]);
       return <section className='character-list grid-view'>
 
-      <h3>Location:
+      <h3 style={{marginLeft: '10px'}}>Location:
 
       <div className={gridView}>
    { (locaList !== undefined) &&       <LocationsCard

@@ -5,12 +5,11 @@ export default function LocationsCard (props) {
 
   return (<span>
        
-    <div style={{display:'flex;'}}><h2> {props.name}</h2>
+    <div style={{display:'flex;'}}>
+      <h3 style={{marginLeft: '20px'}}> {props.name}</h3>
     <li>Created: {props.created}</li>
     <li>Dimension: {props.dimension}</li>
     <li>Type: {props.type}</li>
-
-    <li></li>
     </div>
     </span>
     )
