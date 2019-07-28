@@ -33,9 +33,6 @@ useEffect(() => {
   
 if (times % 1 === 0) {
   setTimes(counter + 1);
-
-console.log('c is',c)
-  // setCharPage((c === 25) ? 1 : c + 1 )
   
 }
       })
