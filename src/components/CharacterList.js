@@ -25,7 +25,7 @@ useEffect(() => {
       axios
     
     // .get(`https://rick-and-morty-learning-api.herokuapp.com/api/`)
-    .get(`https://rickandmortyapi.com/api/character?page=${(c}`)
+    .get(`https://rickandmortyapi.com/api/character?page=${c}`)
       .then(response => {
         // if (isMounted.value) {
         setChar({results: response.data.results});
