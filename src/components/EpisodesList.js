@@ -1,27 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import EpisodeCard from './EpisodeCard'
-import useEpisPage from "./useEpisPage";
 import {GridView} from '../myStyle';
 
 export default function EpisodesList(props) {
   // TODO: Add useState to track data from useEffect
 
 let counter = 0
-const [episPage, setEpisPage] = useEpisPage(1)
 const [episList,setEpis] = useState({results: []})
 const [times, setTimes] = React.useState(0);
   useEffect(() => {
     // TODO: Add AJAX/API Request here - must run in `useEffect`
     //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
+    let c = localStorage.getItem('episPageCount')
+    c = isNaN(c) ? 1 : c
+    c = parseInt(c,10)
+    localStorage.setItem('episPageCount', (c + 1));
+    
     axios
-       .get(`https://rickandmortyapi.com/api/episode?page=${episPage}`)
+       .get(`https://rickandmortyapi.com/api/episode?page=${c % 3}`)
        .then(response => {
 setEpis({results: response.data.results}) ;
 if (times % 1 === 0) {
   setTimes(counter + 1);
-  setEpisPage((episPage === 2) ? 1 : 2 )
-
 }
 
       })

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import LocationCard from './LocationCard'
-import useListPage from "./useListPage";
 import {GridView} from '../myStyle';
 
 export default function LocationList(props) {
@@ -12,15 +11,20 @@ export default function LocationList(props) {
   }
 
 let counter = 0
-const [listPage, setListPage] = useListPage(1)
 const [locaList,setLoca] = useState({results: []})
 const [times, setTimes] = React.useState(0);
   useEffect(() => {
     // TODO: Add AJAX/API Request here - must run in `useEffect`
     //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
+
+
+    let c = localStorage.getItem('locaPageCount')
+    c = isNaN(c) ? 1 : c
+    c = parseInt(c,10)
+    localStorage.setItem('locaPageCount', (c + 1 ));
     axios({
       method: 'get',
-      url: `https://rickandmortyapi.com/api/location?page=${listPage}`,
+      url: `https://rickandmortyapi.com/api/location?page=${c % 5}`,
       responseType: 'json'    })
     // axios
     //    .get(`https://rickandmortyapi.com/api/location/`)
@@ -30,7 +34,6 @@ const [times, setTimes] = React.useState(0);
 {results:    ( response.data.results)}) ;
 if (times % 1 === 0) {
   setTimes(counter + 1);
-  setListPage((listPage === 4) ? 1 : listPage + 1 )
 }
 
       })

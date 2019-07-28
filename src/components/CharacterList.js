@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
-// import useIsMounted from 'ismounted';
 import axios from 'axios';
 import CharacterCard from './CharacterCard'
-import useCharPage from "./useCharPage";
 import {GridView} from '../myStyle';
 
 export default function CharacterList() {
@@ -12,18 +10,22 @@ export default function CharacterList() {
     return arr.length;
   }
 
-let counter = 0
-const [charPage, setCharPage] = useCharPage(1)
+  let counter = 0
 const [charList,setChar] = useState({results: []})
 const [times, setTimes] = React.useState(0);
 // const isMounted = useIsMounted();
 useEffect(() => {
     // TODO: Add AJAX/API Request here - must run in `useEffect`
     //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
-    axios
+
+    let c = localStorage.getItem('charPageCount')
+    c = isNaN(c) ? 1 : c
+    c = parseInt(c,10)
+    localStorage.setItem('charPageCount', (c + 1 ));
+      axios
     
     // .get(`https://rick-and-morty-learning-api.herokuapp.com/api/`)
-    .get(`https://rickandmortyapi.com/api/character?page=${charPage}`)
+    .get(`https://rickandmortyapi.com/api/character?page=${c % 26}`)
       .then(response => {
         // if (isMounted.value) {
         setChar({results: response.data.results});
@@ -31,8 +33,10 @@ useEffect(() => {
   
 if (times % 1 === 0) {
   setTimes(counter + 1);
-  setCharPage((charPage === 25) ? 1 : charPage + 1 )
 
+console.log('c is',c)
+  // setCharPage((c === 25) ? 1 : c + 1 )
+  
 }
       })
         .catch(error => {
