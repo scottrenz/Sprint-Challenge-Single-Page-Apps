@@ -62,7 +62,7 @@ return <section className='character-list grid-view'>
              species={arr[ix].species}
              status={arr[ix].status}
              episodes={arr[ix].episode.map(myFunction)[0]}
-             key={arr[ix].name} className={divView}>
+              className={divView}>
             </CharacterCard>
       ))}
       </div>
