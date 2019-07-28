@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import styled from 'styled-components'
 import LocationsCard from './LocationsCard'
+import {GridView,H310} from '../myStyle';
 
 export default function LocationsList(props) {
   // TODO: Add useState to track data from useEffect
@@ -10,12 +10,6 @@ export default function LocationsList(props) {
     return arr.length;
   }
   
-  let gridView = styled.div `
-  display: flex;
-  flexWrap: wrap;
-  justifyContent: space-evenly;
-`;
-
 let counter = 0
 let url = props.locaUrl
 const [locaList,setLoca] = useState()
@@ -39,9 +33,9 @@ if (times % 3 === 0) {
       },[times,counter,url]);
       return <section className='character-list grid-view'>
 
-      <h3 style={{marginLeft: '10px'}}>Location:
+      <H310>Location:
 
-      <div className={gridView}>
+      <GridView>
       { (locaList === undefined) &&  <div>unknown</div>}
 
    { (locaList !== undefined) &&       <LocationsCard
@@ -54,8 +48,8 @@ if (times % 3 === 0) {
             // residents={locaList.residents}
              >
             </LocationsCard>}
-      </div>
-        </h3>
+      </GridView>
+        </H310>
     </section>
 
 }

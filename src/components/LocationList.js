@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import styled from 'styled-components'
 import LocationCard from './LocationCard'
 import useListPage from "./useListPage";
+import {GridView} from '../myStyle';
 
 export default function LocationList(props) {
   // TODO: Add useState to track data from useEffect
@@ -10,10 +10,6 @@ export default function LocationList(props) {
   const myFunction = function (element,ix,arr) {
     return arr.length;
   }
-
-let divView = styled.div `
-  margin: 1.25rem;
-`;
 
 let counter = 0
 const [listPage, setListPage] = useListPage(1)
@@ -42,17 +38,12 @@ if (times % 1 === 0) {
           console.error(error);
 
         });
-      },[times,counter,listPage,setListPage]);
+      },[times,counter]);
       return <section className='character-list grid-view'>
 
       <h3>Location:
 
-<div style={{  display: 'flex',
-  flexWrap: 'wrap',
-  justifyContent: 'space-evenly'
-}}>
-
-  
+<GridView>
   {locaList.results.map((star,ix,arr) => (
             <LocationCard
             name={arr[ix].name}
@@ -61,10 +52,10 @@ if (times % 1 === 0) {
             location={arr[ix].name}
             type={arr[ix].type}
             residents={arr[ix].residents.map(myFunction)[0]}
-            key={arr[ix].name} className={divView}>
+            key={arr[ix].name} >
              </LocationCard>
        ))}
-       </div>
+       </GridView>
         </h3>
     </section>
 

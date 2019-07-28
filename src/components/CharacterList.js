@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 // import useIsMounted from 'ismounted';
 import axios from 'axios';
-import styled from 'styled-components'
 import CharacterCard from './CharacterCard'
 import useCharPage from "./useCharPage";
+import {GridView} from '../myStyle';
 
 export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
@@ -11,10 +11,6 @@ export default function CharacterList() {
   const myFunction = function (element,ix,arr) {
     return arr.length;
   }
-
-let divView = styled.div `
-  margin: 1.25rem;
-`;
 
 let counter = 0
 const [charPage, setCharPage] = useCharPage(1)
@@ -43,16 +39,13 @@ if (times % 1 === 0) {
           console.error(error);
 
         });
-      },[times,counter,charPage,setCharPage]);
+      },[times,counter]);
 
 return <section className='character-list grid-view'>
 
       <h3>Characters:
 
-      <div style={{  display: 'flex',
-  flexWrap: 'wrap',
-  justifyContent: 'space-evenly'
-}}>
+<GridView>
       {charList.results.map((star,ix,arr) => (
             <CharacterCard
             name={arr[ix].name}
@@ -64,10 +57,10 @@ return <section className='character-list grid-view'>
              species={arr[ix].species}
              status={arr[ix].status}
              episodes={arr[ix].episode.map(myFunction)[0]}
-              className={divView}>
+              >
             </CharacterCard>
       ))}
-      </div>
+      </GridView>
         </h3>
     </section>
 }
