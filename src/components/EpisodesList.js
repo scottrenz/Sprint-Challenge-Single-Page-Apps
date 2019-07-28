@@ -33,7 +33,7 @@ if (times % 1 === 0) {
           console.error(error);
 
         });
-      },[times,counter]);
+      },[times,counter,episPage,setEpisPage]);
       return <section className='character-list grid-view'>
 
       <h3>Episode:

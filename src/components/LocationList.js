@@ -42,7 +42,7 @@ if (times % 1 === 0) {
           console.error(error);
 
         });
-      },[times,counter]);
+      },[times,counter,listPage,setListPage]);
       return <section className='character-list grid-view'>
 
       <h3>Location:

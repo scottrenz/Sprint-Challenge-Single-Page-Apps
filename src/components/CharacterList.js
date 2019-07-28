@@ -41,7 +41,7 @@ if (times % 1 === 0) {
           console.error(error);
 
         });
-      },[times,counter]);
+      },[times,counter,charPage,setCharPage]);
 
 return <section className='character-list grid-view'>
 
