@@ -13,12 +13,12 @@ const [times, setTimes] = React.useState(0);
     // TODO: Add AJAX/API Request here - must run in `useEffect`
     //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
     let c = localStorage.getItem('episPageCount')
-    c = isNaN(c) ? 1 : c
+    c = isNaN(c) ? 0 : c
     c = parseInt(c,10)
-    localStorage.setItem('episPageCount', (c + 1));
+    localStorage.setItem('episPageCount', ((c % 2) + 1));
     
     axios
-       .get(`https://rickandmortyapi.com/api/episode?page=${c % 3}`)
+       .get(`https://rickandmortyapi.com/api/episode?page=${c}`)
        .then(response => {
 setEpis({results: response.data.results}) ;
 if (times % 1 === 0) {

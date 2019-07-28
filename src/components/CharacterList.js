@@ -19,13 +19,13 @@ useEffect(() => {
     //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
 
     let c = localStorage.getItem('charPageCount')
-    c = isNaN(c) ? 1 : c
+    c = isNaN(c) ? 0 : c
     c = parseInt(c,10)
-    localStorage.setItem('charPageCount', (c + 1 ));
+    localStorage.setItem('charPageCount', ((c % 25)+ 1 ));
       axios
     
     // .get(`https://rick-and-morty-learning-api.herokuapp.com/api/`)
-    .get(`https://rickandmortyapi.com/api/character?page=${c % 26}`)
+    .get(`https://rickandmortyapi.com/api/character?page=${(c}`)
       .then(response => {
         // if (isMounted.value) {
         setChar({results: response.data.results});

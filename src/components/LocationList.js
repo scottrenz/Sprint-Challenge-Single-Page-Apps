@@ -19,12 +19,12 @@ const [times, setTimes] = React.useState(0);
 
 
     let c = localStorage.getItem('locaPageCount')
-    c = isNaN(c) ? 1 : c
+    c = isNaN(c) ? 0 : c
     c = parseInt(c,10)
-    localStorage.setItem('locaPageCount', (c + 1 ));
+    localStorage.setItem('locaPageCount', ((c % 4) + 1 ));
     axios({
       method: 'get',
-      url: `https://rickandmortyapi.com/api/location?page=${c % 5}`,
+      url: `https://rickandmortyapi.com/api/location?page=${c}`,
       responseType: 'json'    })
     // axios
     //    .get(`https://rickandmortyapi.com/api/location/`)
