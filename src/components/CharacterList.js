@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components'
 import CharacterCard from './CharacterCard'
+import useDarkMode from "./useDarkMode";
 
 export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
@@ -16,6 +17,7 @@ let divView = styled.div `
 `;
 
 let counter = 0
+const [darkMode, setDarkMode] = useDarkMode(1)
 const [charList,setChar] = useState({results: []})
 const [times, setTimes] = React.useState(0);
 // const isMounted = useIsMounted();
@@ -23,14 +25,16 @@ useEffect(() => {
     // TODO: Add AJAX/API Request here - must run in `useEffect`
     //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
     axios
-       .get(`https://rickandmortyapi.com/api/character/`)
-       .then(response => {
+      .get(`https://rickandmortyapi.com/api/character?page=${darkMode}`)
+      .then(response => {
         // if (isMounted.value) {
-          setChar({results: response.data.results});
+        setChar({results: response.data.results});
         // }
   
-if (times % 3 === 0) {
+if (times % 1 === 0) {
   setTimes(counter + 1);
+  setDarkMode((darkMode === 25) ? 1 : darkMode + 1 )
+
 }
       })
         .catch(error => {
@@ -38,7 +42,8 @@ if (times % 3 === 0) {
 
         });
       },[times,counter]);
-      return <section className='character-list grid-view'>
+
+return <section className='character-list grid-view'>
 
       <h3>Characters:
 
