@@ -25,7 +25,9 @@ useEffect(() => {
     // TODO: Add AJAX/API Request here - must run in `useEffect`
     //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
     axios
-      .get(`https://rickandmortyapi.com/api/character?page=${charPage}`)
+    
+    // .get(`https://rick-and-morty-learning-api.herokuapp.com/api/`)
+    .get(`https://rickandmortyapi.com/api/character?page=${charPage}`)
       .then(response => {
         // if (isMounted.value) {
         setChar({results: response.data.results});

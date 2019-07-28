@@ -39,16 +39,16 @@ export default function App() {
 <Header />
 <Nav>
 <Button>
-<Link className='movie-card' to={`/home`}>Home</Link>
+<Link to={`/home`}>Home</Link>
 </Button>
 <Button>
-<Link className='movie-card' to={`/characters`}>Characters</Link>
+<Link to={`/characters`}>Characters</Link>
 </Button>
 <Button>
-<Link className='movie-card' to={`/locations`}>Locations</Link>
+<Link to={`/locations`}>Locations</Link>
 </Button>
 <Button>
-<Link className='movie-card' to={`/episodes`}>Episodes</Link>
+<Link to={`/episodes`}>Episodes</Link>
 </Button>
 </Nav>
  {/* <TabNav /> */}
