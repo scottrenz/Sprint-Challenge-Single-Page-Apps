@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components'
 import CharacterCard from './CharacterCard'
-import useDarkMode from "./useDarkMode";
+import useCharPage from "./useCharPage";
 
 export default function CharacterList() {
   // TODO: Add useState to track data from useEffect
@@ -17,7 +17,7 @@ let divView = styled.div `
 `;
 
 let counter = 0
-const [darkMode, setDarkMode] = useDarkMode(1)
+const [charPage, setCharPage] = useCharPage(1)
 const [charList,setChar] = useState({results: []})
 const [times, setTimes] = React.useState(0);
 // const isMounted = useIsMounted();
@@ -25,7 +25,7 @@ useEffect(() => {
     // TODO: Add AJAX/API Request here - must run in `useEffect`
     //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
     axios
-      .get(`https://rickandmortyapi.com/api/character?page=${darkMode}`)
+      .get(`https://rickandmortyapi.com/api/character?page=${charPage}`)
       .then(response => {
         // if (isMounted.value) {
         setChar({results: response.data.results});
@@ -33,7 +33,7 @@ useEffect(() => {
   
 if (times % 1 === 0) {
   setTimes(counter + 1);
-  setDarkMode((darkMode === 25) ? 1 : darkMode + 1 )
+  setCharPage((charPage === 25) ? 1 : charPage + 1 )
 
 }
       })

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components'
 import LocationCard from './LocationCard'
+import useListPage from "./useListPage";
 
 export default function LocationList(props) {
   // TODO: Add useState to track data from useEffect
@@ -15,6 +16,7 @@ let divView = styled.div `
 `;
 
 let counter = 0
+const [listPage, setListPage] = useListPage(1)
 const [locaList,setLoca] = useState({results: []})
 const [times, setTimes] = React.useState(0);
   useEffect(() => {
@@ -22,7 +24,7 @@ const [times, setTimes] = React.useState(0);
     //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
     axios({
       method: 'get',
-      url: 'https://rickandmortyapi.com/api/location/',
+      url: `https://rickandmortyapi.com/api/location?page=${listPage}`,
       responseType: 'json'    })
     // axios
     //    .get(`https://rickandmortyapi.com/api/location/`)
@@ -30,8 +32,9 @@ const [times, setTimes] = React.useState(0);
          
   setLoca(
 {results:    ( response.data.results)}) ;
-if (times % 3 === 0) {
+if (times % 1 === 0) {
   setTimes(counter + 1);
+  setListPage((listPage === 4) ? 1 : listPage + 1 )
 }
 
       })
