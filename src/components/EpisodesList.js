@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components'
 import EpisodeCard from './EpisodeCard'
+import useEpisPage from "./useEpisPage";
 
 export default function EpisodesList(props) {
   // TODO: Add useState to track data from useEffect
@@ -11,17 +12,20 @@ let divView = styled.div `
 `;
 
 let counter = 0
-const [episList,setepis] = useState({results: []})
+const [episPage, setEpisPage] = useEpisPage(1)
+const [episList,setEpis] = useState({results: []})
 const [times, setTimes] = React.useState(0);
   useEffect(() => {
     // TODO: Add AJAX/API Request here - must run in `useEffect`
     //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
     axios
-       .get(`https://rickandmortyapi.com/api/episode/`)
+       .get(`https://rickandmortyapi.com/api/episode?page=${episPage}`)
        .then(response => {
-setepis({results: response.data.results}) ;
-if (times % 3 === 0) {
+setEpis({results: response.data.results}) ;
+if (times % 1 === 0) {
   setTimes(counter + 1);
+  setEpisPage((episPage === 2) ? 1 : episPage + 1 )
+
 }
 
       })
